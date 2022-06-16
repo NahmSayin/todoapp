@@ -1,9 +1,22 @@
+import React, { useState } from 'react';
+
 export default function Form() {
+  const [tasks, setTask]= useState<string>()
+
+  const handleClick = (e: any) => {
+    setTask(tasks)
+  }
     return (
-      <form action="/api/form" method="post">
-        <input type="text" name="taskInput" placeholder="Please write a task"/>
-        <button type="submit">Submit</button>
-      </form>
+      // <form action="/api/form" method="post">
+      <div>
+        <input value={tasks} type="text" name="taskInput" placeholder="Please write a task"/>
+        <button type="submit" onClick={handleClick}> Submit</button>
+        <ul>
+          <li>{tasks}</li>
+        </ul>
+      </div>
+
+      // </form>
     )
   }
 
